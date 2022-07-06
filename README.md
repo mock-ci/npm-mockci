@@ -16,6 +16,12 @@ example usage:
 
 ```ts
 import { MockCIPrefab, MockCISession } from 'mockci'
+import { DynamoDBClient, ScanCommand, ScanCommandInput } from "@aws-sdk/client-dynamodb";
+
+type DynamoDBItem = {
+    id: string
+    value: string
+}
 
 async function generateDdbEndpoint() {
     const prefab: MockCIPrefab = {
