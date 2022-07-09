@@ -19,12 +19,14 @@ exports.MockCISession = {
 
     checkStatus,
 
-    start: async ({ key, prefab }) => {
+    start: async ({ apiKey, prefab }) => {
         if(!prefab) {
             prefab = {}
         }
         let qs = ''
-        let apiKey = key || APIKey
+        if(!apiKey && APIKey) {
+            apiKey = APIKey
+        }
         if (apiKey) {
             qs = `?api_key=${apiKey}`
         }
